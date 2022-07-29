@@ -1,0 +1,78 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px; 
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd; 
+  }
+   
+.counter{
+    color: #FF4800;
+    background: linear-gradient(#FF4800,#FF4800 43%,transparent 43%,transparent 57%,#FF4800 57%);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    width: 210px;
+    height: 210px;
+    padding: 43px 28px 35px;
+    margin: 0 auto;
+    border-radius: 70px;
+    position: relative;
+    z-index: 1;
+} 
+.counter:before,
+.counter:after{
+    content: "";
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    right: 13px;
+    bottom: 13px;
+    z-index: -1;
+}
+.counter:after{
+    box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+    top: 23px;
+    left: 23px;
+    right: 23px;
+    bottom: 23px;
+}
+.counter .counter-icon{
+    font-size: 30px;
+    margin: 0 0 10px;
+}
+.counter h3{
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 0 0 9px;
+}
+.counter .counter-value{
+    font-size: 30px;
+    font-weight: 600;
+    display: block;
+}
+.counter.green{
+    color: #59AE58;
+    background: linear-gradient(#59AE58,#59AE58 43%,transparent 43%,transparent 57%,#59AE58 57%);
+}
+.counter.yellow{
+    color: #FEA703;
+    background: linear-gradient(#FEA703,#FEA703 43%,transparent 43%,transparent 57%,#FEA703 57%);
+}
+.counter.blue{
+    color: #FF4800;
+    background: linear-gradient(#FF4800,#FF4800 43%,transparent 43%,transparent 57%,#FF4800 57%);
+}
+@media screen and (max-width:990px){
+    .counter{ margin-bottom: 40px; }
+}     

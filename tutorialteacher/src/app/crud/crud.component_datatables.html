@@ -1,0 +1,97 @@
+<div class="container">
+	<!-- <form> -->
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
+		<div class="form-group">
+			<label for="exampleName1">Name</label>
+			<!-- <input type="text" class="form-control" id="exampleName1" [(ngModel)] = "name"  [ngModelOptions]="{standalone: true}" placeholder="Enter Name"> -->
+			<input
+			formControlName="name"
+			[(ngModel)]="name"
+			type="text"
+			class="form-control">
+			<div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+				<div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+				<div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">Email address</label>
+			<!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)] = "email"  [ngModelOptions]="{standalone: true}" placeholder="Enter email">			 -->
+			<input
+			formControlName="email"
+			[(ngModel)]="email"
+			type="text"
+			class="form-control">
+			<div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+				<div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+				<div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputContact">Contact Number</label>
+			<!-- <input type="text" class="form-control" id="exampleInputContact" aria-describedby="contactHelp" [(ngModel)] = "contact"  [ngModelOptions]="{standalone: true}" placeholder="Enter contact number">			 -->
+			<input
+			formControlName="contact"
+			[(ngModel)]="contact"
+			type="text"
+			class="form-control">
+			<div *ngIf="f['contact'].touched && f['contact'].invalid" class="alert alert-danger">
+				<div *ngIf="f['contact'].errors && f['contact'].errors['required']">Email is required.</div>
+				<div *ngIf="f['contact'].errors && f['contact'].errors['contact']">Please, enter valid email address.</div>
+			</div>
+		</div>
+		<input type = "hidden" formControlName="user_id" [(ngModel)]="user_id">
+		<div>
+			Name : {{name}}<br>
+			Email :{{email}}<br>
+			Contact :{{contact}}
+		</div>
+		<button class="btn btn-primary" [disabled]="form.invalid" type="submit">Submit</button>
+		<!-- <button type="submit" class="btn btn-primary" (click)="onSubmit(this)">{{btntext}}</button> -->
+	</form>
+	<br>
+	<div class="row">
+		<table *ngIf="!posts">
+			No Records Found.
+		</table>
+		<table *ngIf="posts">
+			<tr>
+				<th>S.NO</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>contact</th>
+				<th>Action</th>
+			</tr>
+			<tr *ngFor="let post of posts; let i= index;">
+				<td> {{ i+1 }}</td>
+				<td> {{ post.name }}</td>
+				<td> {{ post.email }}</td>
+				<td> {{ post.contact }}</td>
+				<td> <a href="javascript: void(0);" (click)="edituser(post.id)"> <i class="fas fa-edit"></i></a> | <a href="javascript: void(0);" (click)="deleteuser(post.id)"> <i class="fas fa-trash-alt"></i></a> </td>
+			</tr>
+		</table>
+		<div class="col-md-3 col-sm-6">
+			<div class="counter">
+				<div class="counter-icon"><i class="fa fa-users"></i></div>
+				<span class="counter-value">{{userCount}}</span>
+				<h3>Users</h3>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>
+	$(document).ready(function(){
+	$('.counter-value').each(function(){
+	$(this).prop('Counter',0).animate({
+	Counter: $(this).text()
+	},{
+	duration: 3500,
+	easing: 'swing',
+	step: function (now){
+	$(this).text(Math.ceil(now));
+	}
+	});
+	});
+	});
+</script>

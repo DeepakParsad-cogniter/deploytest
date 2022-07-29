@@ -1,0 +1,53 @@
+<!-- <p>greet works!</p>
+<input type = "text" value="{{name}}">
+<button  (click)="greet()">Click</button> -->
+<h2>Binding -------------------------------------</h2>
+
+ User Name: <input type="text" [(ngModel)]= "userName"><br/>Hello {{userName}}
+<!-- <br>
+Hello {{currentCustomer}}
+<div class  = "test">
+    Hello check encapsulation.
+</div> -->
+<!-- Example: Interpolation -->
+<h2>Example: Interpolation -------------------------------------</h2>
+
+<p> 2 + 2 = {{ 2 + 2 }} </p> <!-- output: "2 + 2 = 4" -->
+<p> 2 * 3 = {{ 2 * 3 }} </p> <!-- output:`"2 * 3 = 6" -->
+<p> {{ "2 + 2 != "+  2 + 2 }} </p> <!-- output:"2 + 2 != 22" -->
+<p> {{ "2 + 2 = "+ (2 + 2) }} </p> <!-- output:"2 + 2 = 4" -->
+<!-- <p>{{ text }} </p>
+<p>{{ num }} </p>
+<p>{{ getCurrentTime() }} </p>
+<button innerText={{caption}}></button> -->
+<!-- Example: Input Variable -->
+<!-- <ul>
+    <li *ngFor="let rndNum of randomNums">{{rndNum}}</li>
+  </ul>   -->
+<!-- Example: Invalid Interpolation -->
+
+<!-- <p>{{ num++ }} </p>
+<p>{{ num += 1}} </p>
+<p>{{ count}} </p>
+<p>{{ typeof(num) }} </p>
+<p>{{ Date.now()}} </p>
+<p>{{ window.name}} </p>
+<p>{{ console.log('This is an error')}} </p> -->
+   
+<h2>Pipe Example-------------------------------------</h2>
+<p>The hero's birthday is {{ birthday | date }}</p>
+<p>The hero's birthday is {{ birthday | date:"MM/dd/yy" }}</p>
+The chained hero's birthday is
+{{  birthday | date:'fullDate' | uppercase}}
+
+Power Booster 
+<p>Super power boost: {{2 | exponentialStrength: 10}}</p>
+Power Boost Calculator 
+<label for="power-input">Normal power: </label>
+<input id="power-input" type="text" [(ngModel)]="power">
+<label for="boost-input">Boost factor: </label>
+<input id="boost-input" type="text" [(ngModel)]="factor">
+<p>
+Super Hero Power: {{power | exponentialStrength: factor}}
+</p>
+
