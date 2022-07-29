@@ -15,10 +15,6 @@ var con = mysql.createConnection({
 app.use(cros());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(__dirname + '/tutorialteacher/dist'));
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/tutorialteacher/dist/index.html'));
-});
 /** Delete User */
 app.get('/edituser/:id', function (req, res) {
 	con.query("SELECT * FROM customers where id = '"+req.params.id+"'", function (err, result, fields) {
@@ -78,4 +74,8 @@ app.post('/adduser',function(req,res){
 // 	var port = server.address().port
 // 	console.log("Example app listening at http://%s:%s", host, port)
 // })
+app.use(express.static(__dirname + '/tutorialteacher/dist'));
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/tutorialteacher/dist/index.html'));
+});
 app.listen(process.env.PORT || 8081);
